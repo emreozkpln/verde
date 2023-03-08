@@ -15,14 +15,12 @@ export default function ProductList() {
             .then(data => dispatch(addPost(data)))
             .catch(err => console.log(err))
     }, [])
-    const {posts} = useSelector(state=>state.posts)
-    
-    console.log(posts.title)
+    const {posts} = useSelector(state=>state.post)
     
     return (
         <div className='bg-white mt-5 grid grid-cols-3 gap-4 p-2'>
             {
-                posts.map(post => (
+                 posts[0] && posts[0].map(post => (
                     <div key={post.id} className="cursor-pointer">
                         <div className='text-sm text-gray-400'>card-body</div>
                         <Link to={`/${post.id}`}>

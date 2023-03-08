@@ -3,9 +3,11 @@ import {MdOutlineArrowBackIosNew} from "react-icons/md"
 import {HiBell} from "react-icons/hi"
 import {TbLayoutGrid} from "react-icons/tb"
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 export default function () {
 
+    const {posts} = useSelector(state=>state.post)
 
   return (
     <div className='w-full h-14 bg-white px-6 flex items-center justify-between'>
@@ -19,7 +21,7 @@ export default function () {
                         Posts
                     </div>
                     <div className='absolute bottom-4 left-8 text-xs border bg-green-400 text-slate-500'>
-                        11
+                        {posts[0] && posts[0].length}
                     </div>
                 </div>
                 <div><HiBell size={18}/></div>
